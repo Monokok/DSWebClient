@@ -1,31 +1,32 @@
-import { Link } from 'react-router-dom';
-import Home from '../../pages/Home/Home';
-import Profile from '../../pages/Profile/Profile';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
 
+const Navbar = ({user}) => {
+  console.log(JSON.stringify(user));
 
-const Navbar = () => {
-
-
-  return (
-     <nav>
+    return (
       <div>
-        <Link to="/">Home</Link>
-      </div>
+        <h3>{user ? user.role + ' ' + user.name : 'Гость'}</h3>
+        <nav>
+          <div>
+            <Link to="/">Главная</Link>
+          </div>
 
-      <div>
-        <Link to="/profile">Profile</Link>
-      </div>
+          <div>
+            <Link to="/profile">Мой профиль</Link>
+          </div>
 
-      <div>
-        <Link to="/login">Login</Link>
-      </div>
+          <div>
+            <Link to="/register">Регистрация</Link>
+          </div>
 
-      <div>
-        <Link to="/register">Register</Link>
+          <div>
+            <Link to="/login">Войти</Link>
+          </div>
+
+          
+        </nav>
       </div>
-    </nav>
-  );
+    );
 };
 
 export default Navbar;

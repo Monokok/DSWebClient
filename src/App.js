@@ -1,27 +1,39 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Navbar from "./components/Navbar/Navbar";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
+import { useState } from "react";
 
 function App() {
-  return (
-
+  //Пользователь приложения
+  const [user, setUser] = useState(
+    {
+      name: "Йованович Джордани  Уик", 
+      role: "Обучающийся",
+      email: "john@mail.com",
+      registerDate: "09.12.2024",
+      number: "+7(123)456-78-90",
+      birthDate: "01.06.2000",
       
-      <Router>
-        <Navbar/>
-        <div>
-          <h1>My React App</h1>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            {/* Добавьте другие маршруты по мере необходимости */}
-          </Routes>
-        </div>
-      </Router>
+    }
+  );
 
+  return (
+    <Router>
+      <Navbar user={user}/>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile user={user}/>} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          {/* Добавьте другие маршруты по мере необходимости */}
+        </Routes>
+      </div>
+    </Router>
 
     // <div className="App">
     //   <header className="App-header">

@@ -5,8 +5,8 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to the Home Page!</h1>
-      <p>This is the homepage of the app.</p>
+      <h1>Web-клиент приложения автошколы</h1>
+      <p>Добро пожаловать!</p>
     </div>
   );
 };
